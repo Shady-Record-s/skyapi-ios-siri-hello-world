@@ -210,6 +210,12 @@ Prerequisites:
 
 ### Debugging
 
+To use Siri on the Simulator, you must have Ask Siri enabled in your Mac System Preferences.
+When this was not enabled, the simulator would not speak at all and the Siri action in
+the simulator never made any noise or listened for audio. If I tried to dictate a contact
+report with this setting disabled, I would see the `AVSpeechSynthesizerDelegate` `didCancel`
+method being called. After changing this setting, the simulator must be restarted.
+
 To debug the app (code in the `Siri-Demo` folder), choose the `Siri-Demo` scheme.
 
 To debug the intent handlers (code in the `Person` folder), choose the `Person`
@@ -229,11 +235,6 @@ to use the Siri Shortcuts app:
 1. Click the menu Hardware > Keyboard > Toggle Software Keyboard (or use cmd+K)
 1. Ensure that the keyboard is displayed
 1. You may need to do this each time you open the simulator
-
-I sometimes had issues with the `AVSpeechSynthesizer` on the simulator. In some cases, I
-was unable to get it to speak at all on the simulator - it would attempt to speak and end
-up in the `didCancel` method. I worked around this by using my physical device instead. Just
-make sure you have silent mode off, volume up, and don't have the accessibility mute setting on.
 
 ## Usage
 
