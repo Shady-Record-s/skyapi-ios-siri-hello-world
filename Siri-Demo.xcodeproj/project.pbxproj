@@ -13,7 +13,6 @@
 		361F7BC12384989400F951D0 /* SkyApiCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 361F7BB92384989400F951D0 /* SkyApiCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		361F7BC7238498AA00F951D0 /* Constituent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361F7B8F238466EC00F951D0 /* Constituent.swift */; };
 		361F7BC8238499A900F951D0 /* SkyApiCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361F7BB92384989400F951D0 /* SkyApiCore.framework */; };
-		361F7BC9238499A900F951D0 /* SkyApiCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 361F7BB92384989400F951D0 /* SkyApiCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		361F7BCF23849A8100F951D0 /* ConstituentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361F7BCE23849A8100F951D0 /* ConstituentApi.swift */; };
 		361F7BD123849B5100F951D0 /* SkyApiBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361F7BD023849B5100F951D0 /* SkyApiBase.swift */; };
 		362DBF6D23A3ED9F001CF1F3 /* ProfilePictureResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362DBF6C23A3ED9F001CF1F3 /* ProfilePictureResponse.swift */; };
@@ -34,14 +33,12 @@
 		36728CF02385A464005FF629 /* SkyUX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36728CE92385A464005FF629 /* SkyUX.framework */; };
 		36728CF12385A464005FF629 /* SkyUX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36728CE92385A464005FF629 /* SkyUX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36728CF52385A47C005FF629 /* SkyUX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36728CE92385A464005FF629 /* SkyUX.framework */; };
-		36728CF62385A47C005FF629 /* SkyUX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36728CE92385A464005FF629 /* SkyUX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36728CFF2385A635005FF629 /* SkyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36728CFE2385A635005FF629 /* SkyLabel.swift */; };
 		36728D042385A9D8005FF629 /* SkyStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD50A1237B06D90086B12E /* SkyStyles.swift */; };
 		36728D052385A9DB005FF629 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD5094237B05480086B12E /* UIColorExtensions.swift */; };
 		36728D072385ABB2005FF629 /* SkyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36728D062385ABB2005FF629 /* SkyButton.swift */; };
 		3695F81023D78F65008B86D8 /* ContactReportDictationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3695F80F23D78F65008B86D8 /* ContactReportDictationEngine.swift */; };
 		3695F81323D8B550008B86D8 /* SiriDemoAppProperties.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3643CF3123D215EA00E7C1EA /* SiriDemoAppProperties.framework */; };
-		3695F81423D8B550008B86D8 /* SiriDemoAppProperties.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3643CF3123D215EA00E7C1EA /* SiriDemoAppProperties.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36BB3A9C23B675DD007AF857 /* FileContactReportIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB3A9B23B675DD007AF857 /* FileContactReportIntentHandler.swift */; };
 		36BB3A9E23BA6687007AF857 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB3A9D23BA6687007AF857 /* HttpError.swift */; };
 		36BB3AA023BA6728007AF857 /* SkyApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB3A9F23BA6728007AF857 /* SkyApiError.swift */; };
@@ -141,39 +138,6 @@
 				361F7BC12384989400F951D0 /* SkyApiCore.framework in Embed Frameworks */,
 				3643CF4723D215EA00E7C1EA /* SiriDemoAppProperties.framework in Embed Frameworks */,
 				36728CF12385A464005FF629 /* SkyUX.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		361F7BCC238499A900F951D0 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				361F7BC9238499A900F951D0 /* SkyApiCore.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		36728CF92385A47C005FF629 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				36728CF62385A47C005FF629 /* SkyUX.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3695F81723D8B550008B86D8 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3695F81423D8B550008B86D8 /* SiriDemoAppProperties.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,7 +499,6 @@
 				361F7BB52384989400F951D0 /* Sources */,
 				361F7BB62384989400F951D0 /* Frameworks */,
 				361F7BB72384989400F951D0 /* Resources */,
-				3695F81723D8B550008B86D8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -590,7 +553,6 @@
 				825C7F0B2308486C00EA9EF7 /* Sources */,
 				825C7F0C2308486C00EA9EF7 /* Frameworks */,
 				825C7F0D2308486C00EA9EF7 /* Resources */,
-				361F7BCC238499A900F951D0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -609,7 +571,6 @@
 				825C7F142308486C00EA9EF7 /* Sources */,
 				825C7F152308486C00EA9EF7 /* Frameworks */,
 				825C7F162308486C00EA9EF7 /* Resources */,
-				36728CF92385A47C005FF629 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
