@@ -40,8 +40,6 @@
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>FileContactReportIntent</string>
-		<string>INCreateNoteIntent</string>
-		<string>INGetVisualCodeIntent</string>
 		<string>PersonInfoIntent</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
