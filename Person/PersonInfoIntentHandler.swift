@@ -18,7 +18,7 @@ class PersonInfoIntentHandler : NSObject, PersonInfoIntentHandling {
 
         SkyApiAuthentication.retrieveAccessToken(groupName: "group.com.blackbaud.bbshortcuts1", completionHandler: { (accessToken) in
             guard let accessToken = accessToken else {
-                let activity = NSUserActivity(activityType: "com.blackbaud.Siri-Demo")
+                let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
                 completion(PersonInfoIntentResponse(code: .failureRequiringAppLaunch, userActivity: activity))
                 return
             }
@@ -55,7 +55,7 @@ class PersonInfoIntentHandler : NSObject, PersonInfoIntentHandling {
                         // TODO grab the image from the URL and set it here
                         let image: INImage? = nil
 
-                        let activity = NSUserActivity(activityType: "com.blackbaud.Siri-Demo")
+                        let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
                         let response = PersonInfoIntentResponse.success(name: searchResult.name, lookupId: searchResult.lookup_id)
                         response.constituent = INPerson(personHandle: INPersonHandle(value: searchResult.email, type: .emailAddress), nameComponents: nameComponents, displayName: searchResult.name, image: image, contactIdentifier: nil, customIdentifier: searchResult.id)
                         response.id = searchResult.id
@@ -77,7 +77,7 @@ class PersonInfoIntentHandler : NSObject, PersonInfoIntentHandling {
 
 
             } else {
-                let activity = NSUserActivity(activityType: "com.blackbaud.Siri-Demo")
+                let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
                 completion(PersonInfoIntentResponse(code: .failure, userActivity: activity))
             }
         })

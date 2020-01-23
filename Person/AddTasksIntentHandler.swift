@@ -113,7 +113,7 @@
 //        SkyApiAuthentication.retrieveAccessToken(groupName: "group.com.blackbaud.bbshortcuts1", completionHandler: { (accessToken) in
 //            guard let accessToken = accessToken else {
 //                // T-ODO
-//                //                let activity = NSUserActivity(activityType: "com.blackbaud.Siri-Demo")
+//                //                let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
 //                //                completion(INSpeakableStringResolutionResult(code: .failureRequiringAppLaunch, userActivity: activity))
 //                return
 //            }

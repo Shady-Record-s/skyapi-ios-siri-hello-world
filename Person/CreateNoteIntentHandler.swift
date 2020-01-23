@@ -83,7 +83,7 @@
 //        SkyApiAuthentication.retrieveAccessToken(groupName: "group.com.blackbaud.bbshortcuts1", completionHandler: { (accessToken) in
 //            guard let accessToken = accessToken else {
 //                // T-ODO
-////                let activity = NSUserActivity(activityType: "com.blackbaud.Siri-Demo")
+////                let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
 ////                completion(INSpeakableStringResolutionResult(code: .failureRequiringAppLaunch, userActivity: activity))
 //                return
 //            }
@@ -110,7 +110,7 @@
 //
 //    func confirm(intent: INCreateNoteIntent, completion: @escaping (INCreateNoteIntentResponse) -> Void) {
 //        // T-ODO
-//        let activity = NSUserActivity(activityType: "com.blackbaud.Siri-Demo")
+//        let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
 //        completion(INCreateNoteIntentResponse(code: INCreateNoteIntentResponseCode.success, userActivity: activity))
 //    }
 //
@@ -134,7 +134,7 @@
 //        SkyApiAuthentication.retrieveAccessToken(groupName: "group.com.blackbaud.bbshortcuts1", completionHandler: { (accessToken) in
 //            guard let accessToken = accessToken else {
 //                // T-ODO
-//                //                let activity = NSUserActivity(activityType: "com.blackbaud.Siri-Demo")
+//                //                let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
 //                //                completion(INSpeakableStringResolutionResult(code: .failureRequiringAppLaunch, userActivity: activity))
 //                return
 //            }
@@ -157,7 +157,7 @@
 ////
 ////        SkyApiAuthentication.retrieveAccessToken(groupName: "group.com.blackbaud.bbshortcuts1", completionHandler: { (accessToken) in
 ////            guard let accessToken = accessToken else {
-////                let activity = NSUserActivity(activityType: "com.blackbaud.Siri-Demo")
+////                let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
 ////                completion(INCreateNoteIntentResponse(code: .failureRequiringAppLaunch, userActivity: activity))
 ////                return
 ////            }
@@ -175,7 +175,7 @@
 ////
 ////                api.getProfilePicture(accessToken: accessToken, id: constituent.id, completion: { thumbnailUrl, url, error in
 ////
-////                    let activity = NSUserActivity(activityType: "com.blackbaud.Siri-Demo")
+////                    let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
 ////                    activity.userInfo!["address"] = constituent.address
 ////                    activity.userInfo!["deceased"] = constituent.deceased
 ////                    activity.userInfo!["email"] = constituent.email
@@ -192,7 +192,7 @@
 ////                })
 ////
 ////            } else {
-////                let activity = NSUserActivity(activityType: "com.blackbaud.Siri-Demo")
+////                let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
 ////                completion(INCreateNoteIntentResponse(code: .failure, userActivity: activity))
 ////            }
 ////        })

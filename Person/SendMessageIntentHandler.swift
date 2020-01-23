@@ -35,7 +35,7 @@
 //
 //            SkyApiAuthentication.retrieveAccessToken(groupName: "group.com.blackbaud.bbshortcuts1", completionHandler: { (accessToken) in
 //                guard let accessToken = accessToken else {
-//                    let activity = NSUserActivity(activityType: "com.blackbaud.Siri-Demo")
+//                    let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
 //                    completion([INSendMessageRecipientResolutionResult(code: .failureRequiringAppLaunch, userActivity: activity)])
 //                    return
 //                }
@@ -114,7 +114,7 @@
 ////
 ////        SkyApiAuthentication.retrieveAccessToken(groupName: "group.com.blackbaud.bbshortcuts1", completionHandler: { (accessToken) in
 ////            guard let accessToken = accessToken else {
-////                let activity = NSUserActivity(activityType: "com.blackbaud.Siri-Demo")
+////                let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
 ////                completion(INSendMessageIntentResponse(code: .failureRequiringAppLaunch, userActivity: activity))
 ////                return
 ////            }
@@ -132,7 +132,7 @@
 ////
 ////                api.getProfilePicture(accessToken: accessToken, id: constituent.id, completion: { thumbnailUrl, url, error in
 ////
-////                    let activity = NSUserActivity(activityType: "com.blackbaud.Siri-Demo")
+////                    let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
 ////                    activity.userInfo!["address"] = constituent.address
 ////                    activity.userInfo!["deceased"] = constituent.deceased
 ////                    activity.userInfo!["email"] = constituent.email
@@ -149,7 +149,7 @@
 ////                })
 ////
 ////            } else {
-////                let activity = NSUserActivity(activityType: "com.blackbaud.Siri-Demo")
+////                let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
 ////                completion(INSendMessageIntentResponse(code: .failure, userActivity: activity))
 ////            }
 ////        })

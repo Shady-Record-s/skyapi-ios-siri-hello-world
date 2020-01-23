@@ -188,6 +188,9 @@ Prerequisites:
     * If you are building a bespoke app for a client, they may add you to their paid organization account so you don't need to purchase an Apple Developer account
 * A SKY Developer account with environment access is needed to access data in SKY API
 * You need Xcode installed
+* I have homebrew installed
+* `gem install cocoapods`
+  * I needed [`rbenv`](https://github.com/rbenv/rbenv-installer) for `gem` to work with my setup, not sure if everyone needs this
 
 1. Set up your SKY application
     1. Go to [SKY Developer](https://developer.blackbaud.com/apps/) and create an application
