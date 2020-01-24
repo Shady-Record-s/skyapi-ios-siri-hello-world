@@ -13,6 +13,8 @@ import SkyUX
 import SkyApiCore
 import CoreSpotlight
 import CoreServices
+import SiriDemoAnalytics
+import SiriDemoAppProperties
 
 class MyViewController: UIViewController {
 
@@ -95,9 +97,7 @@ class MyViewController: UIViewController {
                     divider.widthAnchor.constraint(equalTo: self.authenticatedView.widthAnchor)
                 ])
 
-                self.addShortcutUI(title: "Ask Siri to show you a constituent", helpText: "Specify a constituent's name or \"Ask Each Time\" by clicking \"Look up constituent\" on the popup.", action: #selector(self.addPersonInfoShortcut))
-
-//                self.addShortcutUI(title: "Ask Siri to create a constituent note", helpText: "", action: #selector(self.addCreateNoteShortcut))
+                self.addShortcutUI()
 
                 self.addContactReportUI()
 
@@ -184,7 +184,11 @@ class MyViewController: UIViewController {
 
     }
 
-    func addShortcutUI(title: String, helpText: String, action: Selector) {
+    func addShortcutUI() {
+
+        let title = "Ask Siri to show you a constituent"
+        let helpText = "Specify a constituent's name or \"Ask Each Time\" by clicking \"Look up constituent\" on the popup."
+        let action = #selector(self.addPersonInfoShortcut)
 
         let addShortcutView = UIStackView()
         addShortcutView.axis = .vertical
@@ -219,12 +223,15 @@ class MyViewController: UIViewController {
 
     @objc
     func dictateContactReportClicked() {
-        print("dictateContactReport clicked")
+        Analytics.TrackButtonClick(buttonName: "Dictate Contact Report", pageName: "Home")
         self.contactReportDictationEngine?.startDictation()
     }
 
     @objc
     func addPersonInfoShortcut() {
+
+        Analytics.TrackButtonClick(buttonName: "Add Constituent Lookup Siri Shortcut", pageName: "Home")
+
         let intent = PersonInfoIntent()
         intent.suggestedInvocationPhrase = "Find a constituent"
         guard let shortcut = INShortcut(intent: intent) else {
@@ -236,20 +243,6 @@ class MyViewController: UIViewController {
 
         present(vc, animated: true, completion: nil)
     }
-
-//    @objc
-//    func addCreateNoteShortcut() {
-//        let intent = INCreateNoteIntent()
-//        intent.suggestedInvocationPhrase = "Create a constituent note"
-//        guard let shortcut = INShortcut(intent: intent) else {
-//            return
-//        }
-//
-//        let vc = INUIAddVoiceShortcutViewController(shortcut: shortcut)
-//        vc.delegate = self
-//
-//        present(vc, animated: true, completion: nil)
-//    }
 
     @objc
     func checkIfAuthenticated() {
@@ -277,45 +270,53 @@ class MyViewController: UIViewController {
 
     @objc
     func login(sender: UIButton!) {
-        print("Login button tapped")
 
-        print("WARNING: Fake logging in")
-        let theFuture = Calendar.current.date(byAdding: .year, value: 100, to: Date())!.iso8601
-        SkyApiAuthentication.saveAuthToken(groupName: "group.com.blackbaud.bbshortcuts1", accessToken: "fake", accessTokenExpires: theFuture, refreshToken: "fake", refreshTokenExpires: theFuture)
-        let nc = NotificationCenter.default
-        nc.post(name: Notification.Name("UserLoggedIn"), object: nil)
-        
-//         guard let url = SkyApiAuthentication.LoginPage else {
-//             return
-//         }
+        Analytics.TrackButtonClick(buttonName: "Login", pageName: "Home")
 
-//         // Open in safari
-//         UIApplication.shared.open(url)
-//         // Having issues getting in-app redirect to work, TODO revisit
-//         // Might work better with Universal Link
-// //        let request = URLRequest(url: url)
-// //        let config = WKWebViewConfiguration()
-// //        config.setURLSchemeHandler(<#T##urlSchemeHandler: WKURLSchemeHandler?##WKURLSchemeHandler?#>, forURLScheme: "bbsiridemo")
-// //        let webview = WKWebView(frame: self.view.frame, configuration: config)
-// //        self.view.addSubview(webview)
-// //        self.view.addConstraints([
-// //            // webview horizontal position - center
-// //            webview.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-// //            // webview vertical position - center
-// //            webview.topAnchor.constraint(equalTo: self.view.centerYAnchor),
-// //            // webview width - full width of container
-// //            webview.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-// //            // webview height - full height of container
-// //            webview.heightAnchor.constraint(equalTo: self.view.heightAnchor),
-// //        ])
-// //        webview.load(request)
+        if AppProperties.UseFakeLoginAndData {
+
+            print("WARNING: Fake logging in")
+            let theFuture = Calendar.current.date(byAdding: .year, value: 100, to: Date())!.iso8601
+            SkyApiAuthentication.saveAuthToken(groupName: "group.com.blackbaud.bbshortcuts1", accessToken: "fake", accessTokenExpires: theFuture, refreshToken: "fake", refreshTokenExpires: theFuture)
+            let nc = NotificationCenter.default
+            nc.post(name: Notification.Name("UserLoggedIn"), object: nil)
+
+        } else {
+
+             guard let url = SkyApiAuthentication.LoginPage else {
+                 return
+             }
+
+             // Open in safari
+             UIApplication.shared.open(url)
+             // Having issues getting in-app redirect to work, TODO revisit
+             // Might work better with Universal Link
+     //        let request = URLRequest(url: url)
+     //        let config = WKWebViewConfiguration()
+     //        config.setURLSchemeHandler(<#T##urlSchemeHandler: WKURLSchemeHandler?##WKURLSchemeHandler?#>, forURLScheme: "bbsiridemo")
+     //        let webview = WKWebView(frame: self.view.frame, configuration: config)
+     //        self.view.addSubview(webview)
+     //        self.view.addConstraints([
+     //            // webview horizontal position - center
+     //            webview.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+     //            // webview vertical position - center
+     //            webview.topAnchor.constraint(equalTo: self.view.centerYAnchor),
+     //            // webview width - full width of container
+     //            webview.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+     //            // webview height - full height of container
+     //            webview.heightAnchor.constraint(equalTo: self.view.heightAnchor),
+     //        ])
+     //        webview.load(request)
+
+        }
 
     }
 
     @objc
     func logout(sender: UIButton!) {
         logoutBusy = true
-        print("Logout button tapped")
+
+        Analytics.TrackButtonClick(buttonName: "Logout", pageName: "Home")
 
         SkyApiAuthentication.logout(groupName: "group.com.blackbaud.bbshortcuts1")
 

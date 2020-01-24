@@ -9,6 +9,7 @@ import Foundation
 import Intents
 import os
 import SkyApiCore
+import SiriDemoAnalytics
 
 class PersonInfoIntentHandler : NSObject, PersonInfoIntentHandling {
 
@@ -22,6 +23,8 @@ class PersonInfoIntentHandler : NSObject, PersonInfoIntentHandling {
                 completion(PersonInfoIntentResponse(code: .failureRequiringAppLaunch, userActivity: activity))
                 return
             }
+
+            Analytics.TrackSearch(searchName: "Constituent", pageName: "Person Info Intent")
 
             self.callSkyApi(accessToken: accessToken, searchText: intent.searchText!, completion: completion)
         })

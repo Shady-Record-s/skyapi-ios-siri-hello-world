@@ -1,0 +1,6 @@
+framework module Pods_PersonUI {
+  umbrella header "Pods-PersonUI-umbrella.h"
+
+  export *
+  module * { export * }
+}

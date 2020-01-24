@@ -10,6 +10,7 @@ import Foundation
 import Intents
 import os
 import SkyApiCore
+import SiriDemoAnalytics
 
 class FileContactReportIntentHandler : NSObject, FileContactReportIntentHandling {
 
@@ -84,6 +85,8 @@ class FileContactReportIntentHandler : NSObject, FileContactReportIntentHandling
                         return
                     }
 
+                    Analytics.Track(event: "File Contact Report")
+
                     completion(FileContactReportIntentResponse(code: .success, userActivity: nil))
 
                 })
@@ -157,6 +160,8 @@ class FileContactReportIntentHandler : NSObject, FileContactReportIntentHandling
                 completion(INStringResolutionResult.needsValue())
                 return
             }
+
+            Analytics.TrackSearch(searchName: "Constituent", pageName: "File Contact Report Intent")
 
             let api = ConstituentApi()
             api.findConstituent(accessToken: accessToken, searchText: name, completion: { searchResult, error in

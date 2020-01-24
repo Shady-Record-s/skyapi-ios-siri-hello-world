@@ -8,6 +8,7 @@
 
 import Foundation
 import SiriDemoAppProperties
+import SiriDemoAnalytics
 
 public class SkyApiAuthentication {
 
@@ -129,6 +130,9 @@ public class SkyApiAuthentication {
 
             let accessTokenExpires = now.addingTimeInterval(TimeInterval(token.expires_in - 15)).iso8601
             let refreshTokenExpires = now.addingTimeInterval(TimeInterval(token.refresh_token_expires_in - 15)).iso8601
+
+            Analytics.SetUser(userId: token.user_id, environmentId: token.environment_id, environmentName: token.environment_name,
+                              legalEntityId: token.legal_entity_id, legalEntityName: token.legal_entity_name)
 
             saveAuthToken(groupName: "group.com.blackbaud.bbshortcuts1", accessToken: token.access_token, accessTokenExpires: accessTokenExpires, refreshToken: token.refresh_token, refreshTokenExpires: refreshTokenExpires)
             let nc = NotificationCenter.default
