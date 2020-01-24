@@ -35,14 +35,10 @@
 		3669F83123DB65ED000F8B80 /* SiriDemoAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3669F82A23DB65ED000F8B80 /* SiriDemoAnalytics.framework */; };
 		3669F83223DB65ED000F8B80 /* SiriDemoAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3669F82A23DB65ED000F8B80 /* SiriDemoAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3669F83623DB6646000F8B80 /* SiriDemoAppProperties.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3643CF3123D215EA00E7C1EA /* SiriDemoAppProperties.framework */; };
-		3669F83723DB6646000F8B80 /* SiriDemoAppProperties.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3643CF3123D215EA00E7C1EA /* SiriDemoAppProperties.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3669F83C23DB682E000F8B80 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669F83B23DB682E000F8B80 /* Analytics.swift */; };
 		3669F83E23DB7332000F8B80 /* SiriDemoAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3669F82A23DB65ED000F8B80 /* SiriDemoAnalytics.framework */; };
-		3669F83F23DB7332000F8B80 /* SiriDemoAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3669F82A23DB65ED000F8B80 /* SiriDemoAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3669F84323DB7D58000F8B80 /* SiriDemoAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3669F82A23DB65ED000F8B80 /* SiriDemoAnalytics.framework */; };
-		3669F84423DB7D59000F8B80 /* SiriDemoAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3669F82A23DB65ED000F8B80 /* SiriDemoAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3669F84823DB7D65000F8B80 /* SiriDemoAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3669F82A23DB65ED000F8B80 /* SiriDemoAnalytics.framework */; };
-		3669F84923DB7D65000F8B80 /* SiriDemoAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3669F82A23DB65ED000F8B80 /* SiriDemoAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36728CED2385A464005FF629 /* SkyUX.h in Headers */ = {isa = PBXBuildFile; fileRef = 36728CEB2385A464005FF629 /* SkyUX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		36728CF02385A464005FF629 /* SkyUX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36728CE92385A464005FF629 /* SkyUX.framework */; };
 		36728CF12385A464005FF629 /* SkyUX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36728CE92385A464005FF629 /* SkyUX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -193,50 +189,6 @@
 				3669F83223DB65ED000F8B80 /* SiriDemoAnalytics.framework in Embed Frameworks */,
 				3643CF4723D215EA00E7C1EA /* SiriDemoAppProperties.framework in Embed Frameworks */,
 				36728CF12385A464005FF629 /* SkyUX.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3669F83A23DB6646000F8B80 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3669F83723DB6646000F8B80 /* SiriDemoAppProperties.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3669F84223DB7332000F8B80 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3669F83F23DB7332000F8B80 /* SiriDemoAnalytics.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3669F84723DB7D59000F8B80 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3669F84423DB7D59000F8B80 /* SiriDemoAnalytics.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3669F84C23DB7D65000F8B80 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3669F84923DB7D65000F8B80 /* SiriDemoAnalytics.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -716,7 +668,6 @@
 				361F7BB52384989400F951D0 /* Sources */,
 				361F7BB62384989400F951D0 /* Frameworks */,
 				361F7BB72384989400F951D0 /* Resources */,
-				3669F84723DB7D59000F8B80 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -757,7 +708,6 @@
 				3669F82623DB65ED000F8B80 /* Sources */,
 				3669F82723DB65ED000F8B80 /* Frameworks */,
 				3669F82823DB65ED000F8B80 /* Resources */,
-				3669F83A23DB6646000F8B80 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -796,7 +746,6 @@
 				825C7F0B2308486C00EA9EF7 /* Sources */,
 				825C7F0C2308486C00EA9EF7 /* Frameworks */,
 				825C7F0D2308486C00EA9EF7 /* Resources */,
-				3669F84223DB7332000F8B80 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -817,7 +766,6 @@
 				825C7F142308486C00EA9EF7 /* Sources */,
 				825C7F152308486C00EA9EF7 /* Frameworks */,
 				825C7F162308486C00EA9EF7 /* Resources */,
-				3669F84C23DB7D65000F8B80 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
