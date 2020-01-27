@@ -106,25 +106,30 @@ public class SkyApiAuthentication {
 
             if let error = error {
                 print("Error getting auth token \(String(describing: error))")
+                completion(nil)
                 return
             }
             guard let httpResponse = response as? HTTPURLResponse else {
                 print("Error getting auth token \(String(describing: data))")
+                completion(nil)
                 return
             }
             guard let data = data else {
                 print("Error getting auth token \(httpResponse.statusCode)")
+                completion(nil)
                 return
             }
             guard httpResponse.statusCode == 200 else {
                 let dataString = String(data: data, encoding: .utf8) ?? data.debugDescription
                 print("Error getting auth token \(httpResponse.statusCode) \(dataString)")
+                completion(nil)
                 return
             }
 
             let decoder = JSONDecoder()
             guard let token = try? decoder.decode(OAuthToken.self, from: data) else {
                 print("Error decoding auth token response \(data)")
+                completion(nil)
                 return
             }
 

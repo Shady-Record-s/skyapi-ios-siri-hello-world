@@ -39,6 +39,38 @@ public class Analytics {
 
     }
 
+    public static func UserHasExpressedConsent() -> Bool {
+        let myDefaults = UserDefaults()
+        guard let _ = myDefaults.value(forKey: "AnalyticsOptIn") as? Bool else {
+            return false
+        }
+        return true
+    }
+
+    public static func OptIn() {
+
+        print("Opting in to analytics")
+
+        let myDefaults = UserDefaults()
+        myDefaults.set(true, forKey: "AnalyticsOptIn")
+
+        if AppProperties.EnableAnalyticsWithMixpanel {
+            Mixpanel.mainInstance().optInTracking()
+        }
+    }
+
+    public static func OptOut() {
+
+        print("Opting in to analytics")
+
+        let myDefaults = UserDefaults()
+        myDefaults.set(false, forKey: "AnalyticsOptIn")
+
+        if AppProperties.EnableAnalyticsWithMixpanel {
+            Mixpanel.mainInstance().optOutTracking()
+        }
+    }
+
     // Not going to unset user on log out because people don't share phones
     public static func SetUser(userId: String, environmentId: String, environmentName: String, legalEntityId: String, legalEntityName: String) {
 
