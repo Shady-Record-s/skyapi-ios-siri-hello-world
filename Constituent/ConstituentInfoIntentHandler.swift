@@ -1,6 +1,6 @@
 //
-//  PersonIntentHandler.swift
-//  Person
+//  ConstituentIntentHandler.swift
+//  Constituent
 //
 //  Copyright © 2019 Blackbaud. All rights reserved.
 //
@@ -11,26 +11,26 @@ import os
 import SkyApiCore
 import SiriDemoAnalytics
 
-class PersonInfoIntentHandler : NSObject, PersonInfoIntentHandling {
+class ConstituentInfoIntentHandler : NSObject, ConstituentInfoIntentHandling {
 
-    func handle(intent: PersonInfoIntent, completion: @escaping (PersonInfoIntentResponse) -> Void) {
+    func handle(intent: ConstituentInfoIntent, completion: @escaping (ConstituentInfoIntentResponse) -> Void) {
         os_log("Handling the get constituent intent")
         print("Search text: \(intent.searchText!)")
 
         SkyApiAuthentication.retrieveAccessToken(groupName: "group.com.blackbaud.bbshortcuts1", completionHandler: { (accessToken) in
             guard let accessToken = accessToken else {
                 let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
-                completion(PersonInfoIntentResponse(code: .failureRequiringAppLaunch, userActivity: activity))
+                completion(ConstituentInfoIntentResponse(code: .failureRequiringAppLaunch, userActivity: activity))
                 return
             }
 
-            Analytics.TrackSearch(searchName: "Constituent", pageName: "Person Info Intent")
+            Analytics.TrackSearch(searchName: "Constituent", pageName: "Constituent Info Intent")
 
             self.callSkyApi(accessToken: accessToken, searchText: intent.searchText!, completion: completion)
         })
     }
 
-    func callSkyApi(accessToken: String, searchText: String, completion: @escaping (PersonInfoIntentResponse) -> Void) {
+    func callSkyApi(accessToken: String, searchText: String, completion: @escaping (ConstituentInfoIntentResponse) -> Void) {
         print("Querying SKY API")
 
         let api = ConstituentApi()
@@ -59,7 +59,7 @@ class PersonInfoIntentHandler : NSObject, PersonInfoIntentHandling {
                         let image: INImage? = nil
 
                         let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
-                        let response = PersonInfoIntentResponse.success(name: searchResult.name, lookupId: searchResult.lookup_id)
+                        let response = ConstituentInfoIntentResponse.success(name: searchResult.name, lookupId: searchResult.lookup_id)
                         response.constituent = INPerson(personHandle: INPersonHandle(value: searchResult.email, type: .emailAddress), nameComponents: nameComponents, displayName: searchResult.name, image: image, contactIdentifier: nil, customIdentifier: searchResult.id)
                         response.id = searchResult.id
                         response.address = searchResult.address
@@ -81,12 +81,12 @@ class PersonInfoIntentHandler : NSObject, PersonInfoIntentHandling {
 
             } else {
                 let activity = NSUserActivity(activityType: "com.blackbaud.siridemo")
-                completion(PersonInfoIntentResponse(code: .failure, userActivity: activity))
+                completion(ConstituentInfoIntentResponse(code: .failure, userActivity: activity))
             }
         })
     }
 
-    func resolveSearchText(for intent: PersonInfoIntent, with completion: @escaping (INStringResolutionResult) -> Void) {
+    func resolveSearchText(for intent: ConstituentInfoIntent, with completion: @escaping (INStringResolutionResult) -> Void) {
         if intent.searchText == "searchText" {
             completion(INStringResolutionResult.needsValue())
         }else{

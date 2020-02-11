@@ -1,6 +1,6 @@
 //
 //  IntentHandler.swift
-//  Person
+//  Constituent
 //
 //  Copyright © 2019 Blackbaud. All rights reserved.
 //
@@ -10,8 +10,8 @@ import Intents
 class IntentHandler: INExtension {
 
     override func handler(for intent: INIntent) -> Any {
-        if intent is PersonInfoIntent {
-            return PersonInfoIntentHandler()
+        if intent is ConstituentInfoIntent {
+            return ConstituentInfoIntentHandler()
         }
         if intent is FileContactReportIntent {
             return FileContactReportIntentHandler()

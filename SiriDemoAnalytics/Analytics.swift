@@ -61,7 +61,7 @@ public class Analytics {
 
     public static func OptOut() {
 
-        print("Opting in to analytics")
+        print("Opting out of analytics")
 
         let myDefaults = UserDefaults()
         myDefaults.set(false, forKey: "AnalyticsOptIn")

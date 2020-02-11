@@ -9,7 +9,7 @@
 
 ////
 ////  CreateNoteIntentHandler.swift
-////  Person
+////  Constituent
 ////
 ////  Created by Christi Schneider on 12/17/19.
 ////  Copyright © 2019 Blackbaud. All rights reserved.

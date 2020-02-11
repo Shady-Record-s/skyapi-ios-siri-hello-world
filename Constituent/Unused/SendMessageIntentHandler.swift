@@ -11,7 +11,7 @@
 
 ////
 ////  SendMessageIntentHandler.swift
-////  Person
+////  Constituent
 ////
 ////  Created by Christi Schneider on 12/16/19.
 ////  Copyright © 2019 Blackbaud. All rights reserved.

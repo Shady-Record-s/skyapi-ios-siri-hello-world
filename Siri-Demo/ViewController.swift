@@ -21,6 +21,7 @@ class MyViewController: UIViewController {
     var titleLabelConstraints: [NSLayoutConstraint] = []
     var titleLabel: SkyLabel!
     var authButton: SkyButton!
+    var dictateContactReportButton: SkyButton!
     var authenticatedView: UIStackView!
     var contactReportDictationEngine: ContactReportDictationEngine?
 
@@ -189,9 +190,9 @@ class MyViewController: UIViewController {
         dictateContactReportView.addConstraints([
             dictateContactReportInfoLabel.widthAnchor.constraint(lessThanOrEqualTo: dictateContactReportView.widthAnchor)
         ])
-        let dictateContactReportButton = SkyButton.createPrimaryButton(text: "Start")
-        dictateContactReportButton.addTarget(self, action: #selector(dictateContactReportClicked), for: .touchUpInside)
-        dictateContactReportView.addArrangedSubview(dictateContactReportButton)
+        self.dictateContactReportButton = SkyButton.createPrimaryButton(text: "Start")
+        self.dictateContactReportButton.addTarget(self, action: #selector(dictateContactReportClicked), for: .touchUpInside)
+        dictateContactReportView.addArrangedSubview(self.dictateContactReportButton)
 
         let dictateContactReportStatusLabel = SkyLabel(text: "")
         let dictateContactReportResultLabel = SkyLabel.createEmphasizedBodyCopy(text: "")
@@ -205,7 +206,7 @@ class MyViewController: UIViewController {
 
         let title = "Ask Siri to show you a constituent"
         let helpText = "Specify a constituent's name or \"Ask Each Time\" by clicking \"Look up constituent\" on the popup."
-        let action = #selector(self.addPersonInfoShortcut)
+        let action = #selector(self.addConstituentInfoShortcut)
 
         let addShortcutView = UIStackView()
         addShortcutView.axis = .vertical
@@ -240,16 +241,32 @@ class MyViewController: UIViewController {
 
     @objc
     func dictateContactReportClicked() {
-        Analytics.TrackButtonClick(buttonName: "Dictate Contact Report", pageName: "Home")
-        self.contactReportDictationEngine?.startDictation()
+        DispatchQueue.main.async() {
+            [weak self] in
+            guard let self = self else { return }
+            
+            if self.dictateContactReportButton.titleLabel?.text == "Start" {
+                Analytics.TrackButtonClick(buttonName: "Dictate Contact Report Start", pageName: "Home")
+
+                self.dictateContactReportButton.setTitle("Stop", for: .normal)
+                self.contactReportDictationEngine?.startDictation(completion: {
+                    self.dictateContactReportButton.setTitle("Start", for: .normal)
+                })
+            } else {
+                Analytics.TrackButtonClick(buttonName: "Dictate Contact Report Stop", pageName: "Home")
+
+                self.dictateContactReportButton.setTitle("Start", for: .normal)
+                self.contactReportDictationEngine?.stop()
+            }
+        }
     }
 
     @objc
-    func addPersonInfoShortcut() {
+    func addConstituentInfoShortcut() {
 
         Analytics.TrackButtonClick(buttonName: "Add Constituent Lookup Siri Shortcut", pageName: "Home")
-
-        let intent = PersonInfoIntent()
+        
+        let intent = ConstituentInfoIntent()
         intent.suggestedInvocationPhrase = "Find a constituent"
         guard let shortcut = INShortcut(intent: intent) else {
             return
@@ -297,7 +314,7 @@ class MyViewController: UIViewController {
             SkyApiAuthentication.saveAuthToken(groupName: "group.com.blackbaud.bbshortcuts1", accessToken: "fake", accessTokenExpires: theFuture, refreshToken: "fake", refreshTokenExpires: theFuture)
             let nc = NotificationCenter.default
             nc.post(name: Notification.Name("UserLoggedIn"), object: nil)
-
+        
         } else {
 
              guard let url = SkyApiAuthentication.LoginPage else {
@@ -332,7 +349,7 @@ class MyViewController: UIViewController {
     @objc
     func logout(sender: UIButton!) {
         logoutBusy = true
-
+        
         Analytics.TrackButtonClick(buttonName: "Logout", pageName: "Home")
 
         SkyApiAuthentication.logout(groupName: "group.com.blackbaud.bbshortcuts1")

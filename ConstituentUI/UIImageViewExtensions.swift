@@ -1,6 +1,6 @@
 //
 //  UIImageViewExtensions.swift
-//  PersonUI
+//  ConstituentUI
 //
 //  Created by Christi Schneider on 12/13/19.
 //  Copyright © 2019 Blackbaud. All rights reserved.

@@ -1,0 +1,6 @@
+framework module Pods_Constituent {
+  umbrella header "Pods-Constituent-umbrella.h"
+
+  export *
+  module * { export * }
+}

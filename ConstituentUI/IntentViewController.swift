@@ -1,6 +1,6 @@
 //
 //  IntentViewController.swift
-//  PersonUI
+//  ConstituentUI
 //
 //  Copyright © 2019 Blackbaud. All rights reserved.
 //
@@ -27,7 +27,7 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
     func configureView(for parameters: Set<INParameter>, of interaction: INInteraction, interactiveBehavior: INUIInteractiveBehavior, context: INUIHostedViewContext, completion: @escaping (Bool, Set<INParameter>, CGSize) -> Void) {
         // Do configuration here, including preparing views and calculating a desired size for presentation.
 
-        guard let intent = interaction.intent as? PersonInfoIntent else {
+        guard let intent = interaction.intent as? ConstituentInfoIntent else {
            completion(true, parameters, self.desiredSize)
            return
         }
@@ -39,9 +39,9 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
         return
     }
 
-    private func configureUI(with intent: PersonInfoIntent, of interaction: INInteraction) -> CGSize {
+    private func configureUI(with intent: ConstituentInfoIntent, of interaction: INInteraction) -> CGSize {
 
-        guard let intentResponse = interaction.intentResponse as? PersonInfoIntentResponse else {
+        guard let intentResponse = interaction.intentResponse as? ConstituentInfoIntentResponse else {
             print("Error getting data from interaction")
 
             let viewSize = view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)

@@ -9,7 +9,7 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>kWaoNV</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>18G2022</string>
+	<string>18G3020</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
 	<string>11C504</string>
 	<key>INIntentDefinitionToolsVersion</key>
@@ -48,7 +48,7 @@
 				</dict>
 			</dict>
 			<key>INIntentName</key>
-			<string>PersonInfo</string>
+			<string>ConstituentInfo</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
 				<key>searchText</key>
@@ -128,7 +128,7 @@
 					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
-				<integer>35</integer>
+				<integer>37</integer>
 				<key>INIntentResponseOutput</key>
 				<string>lookupId</string>
 				<key>INIntentResponseParameters</key>
@@ -157,7 +157,7 @@
 						<key>INIntentResponseParameterName</key>
 						<string>constituent</string>
 						<key>INIntentResponseParameterTag</key>
-						<integer>24</integer>
+						<integer>37</integer>
 						<key>INIntentResponseParameterType</key>
 						<string>Person</string>
 					</dict>
@@ -493,7 +493,7 @@
 				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>File a contact repoort</string>
+			<string>File a contact report</string>
 			<key>INIntentTitleID</key>
 			<string>w3MMKT</string>
 			<key>INIntentType</key>

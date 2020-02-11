@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_PersonVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_PersonVersionString[];
+FOUNDATION_EXPORT double Pods_ConstituentVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_ConstituentVersionString[];
 

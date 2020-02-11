@@ -1,6 +1,6 @@
 //
 //  FileContactReportIntentHandler.swift
-//  Person
+//  Constituent
 //
 //  Created by Christi Schneider on 12/27/19.
 //  Copyright © 2019 Blackbaud. All rights reserved.

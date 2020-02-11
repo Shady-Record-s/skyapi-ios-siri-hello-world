@@ -18,19 +18,19 @@ target 'Siri-Demo' do
 
 end
 
-target 'Person' do
+target 'Constituent' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Person
+  # Pods for Constituent
 
 end
 
-target 'PersonUI' do
+target 'ConstituentUI' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for PersonUI
+  # Pods for ConstituentUI
 
 end
 

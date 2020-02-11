@@ -117,7 +117,7 @@ See the "Included unused code" section for more information.
 You cannot say "Hey Siri, show me Robert Hernandez". You have
 to first trigger the shortcut like "Hey Siri, Find a constituent" and then wait
 for Siri to ask who you're looking for. This is true unless you create
-a shortcut for finding a specific person, where the lookup ID and/or name is pre-filled.
+a shortcut for finding a specific constituent, where the lookup ID and/or name is pre-filled.
 
 ### Inability to default shortcut values
 
@@ -176,7 +176,7 @@ calls to your server and your server should make the calls to SKY API using the 
 
 1. Custom intent to show a QR code containing a vCard for a constituent
 1. Apple Watch app and push notifications to support Apple Watch functionality mentioned above
-1. Dark mode
+1. Dark mode (wait for [SKY UX support](https://github.com/blackbaud/skyux-theme/issues/77))
 
 ## Getting started
 
@@ -221,11 +221,11 @@ method being called. After changing this setting, the simulator must be restarte
 
 To debug the app (code in the `Siri-Demo` folder), choose the `Siri-Demo` scheme.
 
-To debug the intent handlers (code in the `Person` folder), choose the `Person`
+To debug the intent handlers (code in the `Constituent` folder), choose the `Constituent`
 scheme.
 
-To debug the intent UI like the "find a constituent" pop up (code in the `PersonUI`
-folder), choose the `PersonUI` scheme.
+To debug the intent UI like the "find a constituent" pop up (code in the `ConstituentUI`
+folder), choose the `ConstituentUI` scheme.
 
 As far as I know, there's no way to debug more than one of these at a time. You
 will not see print statements or app crash errors from the scheme you are not

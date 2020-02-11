@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "82EBEBAF2308463700CCF56B"
-               BuildableName = "Blackbaud.app"
+               BuildableName = "SKY Siri Sample.app"
                BlueprintName = "Siri-Demo"
                ReferencedContainer = "container:Siri-Demo.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "82EBEBAF2308463700CCF56B"
-            BuildableName = "Blackbaud.app"
+            BuildableName = "SKY Siri Sample.app"
             BlueprintName = "Siri-Demo"
             ReferencedContainer = "container:Siri-Demo.xcodeproj">
          </BuildableReference>
@@ -69,7 +69,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "82EBEBAF2308463700CCF56B"
-            BuildableName = "Blackbaud.app"
+            BuildableName = "SKY Siri Sample.app"
             BlueprintName = "Siri-Demo"
             ReferencedContainer = "container:Siri-Demo.xcodeproj">
          </BuildableReference>

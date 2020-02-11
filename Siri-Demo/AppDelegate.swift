@@ -53,9 +53,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Return true to indicate that your app handled the activity or false to let iOS know that your app did not handle the activity.
 
         guard let interaction = userActivity.interaction,
-            let response = interaction.intentResponse as? PersonInfoIntentResponse,
+            let response = interaction.intentResponse as? ConstituentInfoIntentResponse,
             let responseActivity = response.userActivity,
-            let intent = interaction.intent as? PersonInfoIntent else {
+            let intent = interaction.intent as? ConstituentInfoIntent else {
                 return false
         }
 
