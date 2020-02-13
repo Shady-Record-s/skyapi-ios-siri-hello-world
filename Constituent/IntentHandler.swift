@@ -6,10 +6,14 @@
 //
 
 import Intents
+import SiriDemoAnalytics
 
 class IntentHandler: INExtension {
 
     override func handler(for intent: INIntent) -> Any {
+        
+        Analytics.initialize()
+        
         if intent is ConstituentInfoIntent {
             return ConstituentInfoIntentHandler()
         }

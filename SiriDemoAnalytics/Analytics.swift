@@ -11,8 +11,14 @@ import SiriDemoAppProperties
 import Mixpanel
 
 public class Analytics {
+    
+    static var initialized = false
 
     public static func initialize() {
+        
+        if initialized {
+            return
+        }
 
         guard AppProperties.EnableAnalytics else {
             return
@@ -32,6 +38,7 @@ public class Analytics {
 
             print("Initializing Mixpanel instrumentation")
             Mixpanel.initialize(token: AppProperties.MixpanelToken)
+            initialized = true
 
             Mixpanel.mainInstance().registerSuperProperties(superProperties)
 
