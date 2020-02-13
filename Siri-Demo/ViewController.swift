@@ -118,23 +118,6 @@ class MyViewController: UIViewController {
 
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-
-        if !Analytics.UserHasExpressedConsent() {
-            let consentModal = UIAlertController(title: "Consent",
-                                                 message: "Will you consent to share your usage data to help improve this app?",
-                                                 preferredStyle: .alert)
-            consentModal.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-                Analytics.OptIn()
-            }))
-            consentModal.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-                Analytics.OptOut()
-            }))
-            present(consentModal, animated: true, completion: nil)
-        }
-
-    }
-
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
