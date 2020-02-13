@@ -1,0 +1,6 @@
+framework module Pods_SiriDemoAppProperties {
+  umbrella header "Pods-SiriDemoAppProperties-umbrella.h"
+
+  export *
+  module * { export * }
+}

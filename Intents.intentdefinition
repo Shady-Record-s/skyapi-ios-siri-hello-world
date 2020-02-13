@@ -9,7 +9,7 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>kWaoNV</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>18G2022</string>
+	<string>18G3020</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
 	<string>11C504</string>
 	<key>INIntentDefinitionToolsVersion</key>
@@ -48,7 +48,7 @@
 				</dict>
 			</dict>
 			<key>INIntentName</key>
-			<string>PersonInfo</string>
+			<string>ConstituentInfo</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
 				<key>searchText</key>
@@ -128,7 +128,7 @@
 					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
-				<integer>35</integer>
+				<integer>37</integer>
 				<key>INIntentResponseOutput</key>
 				<string>lookupId</string>
 				<key>INIntentResponseParameters</key>
@@ -157,7 +157,7 @@
 						<key>INIntentResponseParameterName</key>
 						<string>constituent</string>
 						<key>INIntentResponseParameterTag</key>
-						<integer>24</integer>
+						<integer>37</integer>
 						<key>INIntentResponseParameterType</key>
 						<string>Person</string>
 					</dict>
@@ -493,82 +493,13 @@
 				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>File a contact repoort</string>
+			<string>File a contact report</string>
 			<key>INIntentTitleID</key>
 			<string>w3MMKT</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
 			<key>INIntentVerb</key>
 			<string>Create</string>
-		</dict>
-		<dict>
-			<key>INIntentCategory</key>
-			<string>system</string>
-			<key>INIntentClassName</key>
-			<string>INGetVisualCodeIntent</string>
-			<key>INIntentClassPrefix</key>
-			<string>IN</string>
-			<key>INIntentCustomizable</key>
-			<true/>
-			<key>INIntentDescription</key>
-			<string>A request to show a visual code to the user.</string>
-			<key>INIntentDescriptionID</key>
-			<string>GX6VGX</string>
-			<key>INIntentDomain</key>
-			<string>Visual Codes</string>
-			<key>INIntentInput</key>
-			<string>visualCodeType</string>
-			<key>INIntentKeyParameter</key>
-			<string>visualCodeType</string>
-			<key>INIntentLastParameterTag</key>
-			<integer>2</integer>
-			<key>INIntentName</key>
-			<string>GetVisualCode</string>
-			<key>INIntentParameterCombinations</key>
-			<dict>
-				<key>visualCodeType</key>
-				<dict>
-					<key>INIntentParameterCombinationIsPrimary</key>
-					<true/>
-					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
-					<true/>
-					<key>INIntentParameterCombinationTitle</key>
-					<string>Show ${visualCodeType} visual code</string>
-					<key>INIntentParameterCombinationTitleID</key>
-					<string>Byitwy</string>
-				</dict>
-			</dict>
-			<key>INIntentParameters</key>
-			<array>
-				<dict>
-					<key>INIntentParameterCustomDisambiguation</key>
-					<true/>
-					<key>INIntentParameterDisplayName</key>
-					<string>Type</string>
-					<key>INIntentParameterDisplayNameID</key>
-					<string>pTRfnT</string>
-					<key>INIntentParameterDisplayPriority</key>
-					<integer>1</integer>
-					<key>INIntentParameterEnumType</key>
-					<string>VisualCodeType</string>
-					<key>INIntentParameterEnumTypeNamespace</key>
-					<string>System</string>
-					<key>INIntentParameterName</key>
-					<string>visualCodeType</string>
-					<key>INIntentParameterSupportsResolution</key>
-					<true/>
-					<key>INIntentParameterTag</key>
-					<integer>2</integer>
-					<key>INIntentParameterType</key>
-					<string>Integer</string>
-				</dict>
-			</array>
-			<key>INIntentTitle</key>
-			<string>Show Visual Code</string>
-			<key>INIntentTitleID</key>
-			<string>ki9R2F</string>
-			<key>INIntentType</key>
-			<string>System</string>
 		</dict>
 	</array>
 	<key>INTypes</key>

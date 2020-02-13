@@ -25,6 +25,7 @@ class ContactReportDictationEngine: NSObject {
     var lastTimeTriggered: Date?
     var lastSearchResult: ConstituentSearchResult?
     var searchText: String?
+    var finalCompletion: (() -> Void)?
 
     init(statusLabel: SkyLabel, resultLabel: SkyLabel) {
         self.statusLabel = statusLabel
@@ -32,12 +33,27 @@ class ContactReportDictationEngine: NSObject {
     }
 
     public func stop() {
-        print("Contact report dictation engine - stop speaking")
+        print("Contact report dictation engine - stop")
+        
+        // Stop speaking
         avSpeechSynthesizer.stopSpeaking(at: .immediate)
+        
+        // Stop recording
+        audioEngine.stop()
+        speechRecognitionRequest?.endAudio()
+        audioEngine.inputNode.removeTap(onBus: 0)
+        recognitionTask?.cancel()
+        
+        // Reset labels
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.statusLabel.text = ""
+            self.resultLabel.text = ""
+        }
     }
 
-    public func startDictation() {
-
+    public func startDictation(completion: @escaping () -> Void) {
+        
         print("startDictation")
 
         // TODO Ideal workflow:
@@ -63,6 +79,8 @@ class ContactReportDictationEngine: NSObject {
         // 5. Donate the action
         // 6. Tell the user how to add a shortcut to do the same thing next time
 
+        self.finalCompletion = completion
+        
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.statusLabel.text = "Starting contact report"
@@ -125,7 +143,7 @@ class ContactReportDictationEngine: NSObject {
 
                     // Donate an intent to find a constituent so the suggestion shows in Shortcuts
                     print("Donating interaction to find a constituent")
-                    let intent = PersonInfoIntent()
+                    let intent = ConstituentInfoIntent()
                     intent.suggestedInvocationPhrase = "Find a constituent"
                     intent.searchText = recording
 
@@ -226,6 +244,10 @@ class ContactReportDictationEngine: NSObject {
                         guard let self = self else { return }
                         self.resultLabel.text = "You can add a shortcut to dictate another contact report in the Shortcuts app"
                     }
+                    
+                    if let finalCompletion = self.finalCompletion {
+                        finalCompletion()
+                    }
 
                 })
             })
@@ -241,11 +263,59 @@ class ContactReportDictationEngine: NSObject {
             [unowned self] (authStatus) in
             switch authStatus {
             case .authorized:
-                do {
-                    try self.startRecording(completion: completion)
-                } catch let error {
-                    print("There was a problem starting recording: \(error.localizedDescription)")
+                
+                switch AVAudioSession.sharedInstance().recordPermission {
+                case AVAudioSessionRecordPermission.granted:
+                    print("Record permission granted")
+
+                    do {
+                        try self.startRecording(completion: completion)
+                    } catch let error {
+                        print("There was a problem starting recording: \(error.localizedDescription)")
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self = self else { return }
+                            self.statusLabel.text = "Error starting recording"
+                            self.resultLabel.text = ""
+                        }
+                    }
+                    return
+                case AVAudioSessionRecordPermission.denied:
+                    print("Record pemission denied")
+                case AVAudioSessionRecordPermission.undetermined:
+                    print("Record permission not given - requesting")
+                    AVAudioSession.sharedInstance().requestRecordPermission({ (granted) in
+                        // Handle granted
+                        if (granted) {
+                            do {
+                                try self.startRecording(completion: completion)
+                            } catch let error {
+                                print("There was a problem starting recording: \(error.localizedDescription)")
+                                DispatchQueue.main.async { [weak self] in
+                                    guard let self = self else { return }
+                                    self.statusLabel.text = "Error starting recording"
+                                    self.resultLabel.text = ""
+                                }
+                            }
+                        } else {
+                            DispatchQueue.main.async { [weak self] in
+                                guard let self = self else { return }
+                                self.statusLabel.text = "Microphone is not available"
+                                self.resultLabel.text = ""
+                            }
+                        }
+                    })
+                    return
+                @unknown default:
+                    break
                 }
+
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.statusLabel.text = "Microphone is not available"
+                    self.resultLabel.text = ""
+                }
+                return
+
             case .denied:
                 print("Speech recognition authorization denied")
             case .restricted:
@@ -255,6 +325,13 @@ class ContactReportDictationEngine: NSObject {
             default:
                 print("Unknown")
             }
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.statusLabel.text = "Speech recognition is not available"
+                self.resultLabel.text = ""
+            }
+
         }
 
     }

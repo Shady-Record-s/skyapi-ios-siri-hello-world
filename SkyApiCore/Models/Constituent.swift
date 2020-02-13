@@ -1,6 +1,6 @@
 //
 //  Constituent.swift
-//  Person
+//  Constituent
 //
 //  Created by Christi Schneider on 11/19/19.
 //  Copyright © 2019 Blackbaud. All rights reserved.

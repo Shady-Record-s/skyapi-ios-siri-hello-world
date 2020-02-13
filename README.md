@@ -117,7 +117,7 @@ See the "Included unused code" section for more information.
 You cannot say "Hey Siri, show me Robert Hernandez". You have
 to first trigger the shortcut like "Hey Siri, Find a constituent" and then wait
 for Siri to ask who you're looking for. This is true unless you create
-a shortcut for finding a specific person, where the lookup ID and/or name is pre-filled.
+a shortcut for finding a specific constituent, where the lookup ID and/or name is pre-filled.
 
 ### Inability to default shortcut values
 
@@ -176,7 +176,7 @@ calls to your server and your server should make the calls to SKY API using the 
 
 1. Custom intent to show a QR code containing a vCard for a constituent
 1. Apple Watch app and push notifications to support Apple Watch functionality mentioned above
-1. Dark mode
+1. Dark mode (wait for [SKY UX support](https://github.com/blackbaud/skyux-theme/issues/77))
 
 ## Getting started
 
@@ -188,7 +188,12 @@ Prerequisites:
     * If you are building a bespoke app for a client, they may add you to their paid organization account so you don't need to purchase an Apple Developer account
 * A SKY Developer account with environment access is needed to access data in SKY API
 * You need Xcode installed
+* I have homebrew installed
+* `gem install cocoapods`
+  * I needed [`rbenv`](https://github.com/rbenv/rbenv-installer) for `gem` to work with my setup, not sure if everyone needs this
 
+1. You can build and run the app immediately with fake data if you'd like
+1. To use real data, change the `UseFakeLoginAndData` value in the [SiriDemoAppProperties/Properties.swift](./SiriDemoAppProperties/Properties.swift) file to `false`
 1. Set up your SKY application
     1. Go to [SKY Developer](https://developer.blackbaud.com/apps/) and create an application
     1. Note the application ID and secret
@@ -218,11 +223,11 @@ method being called. After changing this setting, the simulator must be restarte
 
 To debug the app (code in the `Siri-Demo` folder), choose the `Siri-Demo` scheme.
 
-To debug the intent handlers (code in the `Person` folder), choose the `Person`
+To debug the intent handlers (code in the `Constituent` folder), choose the `Constituent`
 scheme.
 
-To debug the intent UI like the "find a constituent" pop up (code in the `PersonUI`
-folder), choose the `PersonUI` scheme.
+To debug the intent UI like the "find a constituent" pop up (code in the `ConstituentUI`
+folder), choose the `ConstituentUI` scheme.
 
 As far as I know, there's no way to debug more than one of these at a time. You
 will not see print statements or app crash errors from the scheme you are not

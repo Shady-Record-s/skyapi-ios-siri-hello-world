@@ -8,6 +8,7 @@
 
 import Foundation
 import SiriDemoAppProperties
+import SiriDemoAnalytics
 
 public class SkyApiAuthentication {
 
@@ -105,30 +106,38 @@ public class SkyApiAuthentication {
 
             if let error = error {
                 print("Error getting auth token \(String(describing: error))")
+                completion(nil)
                 return
             }
             guard let httpResponse = response as? HTTPURLResponse else {
                 print("Error getting auth token \(String(describing: data))")
+                completion(nil)
                 return
             }
             guard let data = data else {
                 print("Error getting auth token \(httpResponse.statusCode)")
+                completion(nil)
                 return
             }
             guard httpResponse.statusCode == 200 else {
                 let dataString = String(data: data, encoding: .utf8) ?? data.debugDescription
                 print("Error getting auth token \(httpResponse.statusCode) \(dataString)")
+                completion(nil)
                 return
             }
 
             let decoder = JSONDecoder()
             guard let token = try? decoder.decode(OAuthToken.self, from: data) else {
                 print("Error decoding auth token response \(data)")
+                completion(nil)
                 return
             }
 
             let accessTokenExpires = now.addingTimeInterval(TimeInterval(token.expires_in - 15)).iso8601
             let refreshTokenExpires = now.addingTimeInterval(TimeInterval(token.refresh_token_expires_in - 15)).iso8601
+
+            Analytics.SetUser(userId: token.user_id, environmentId: token.environment_id, environmentName: token.environment_name,
+                              legalEntityId: token.legal_entity_id, legalEntityName: token.legal_entity_name)
 
             saveAuthToken(groupName: "group.com.blackbaud.bbshortcuts1", accessToken: token.access_token, accessTokenExpires: accessTokenExpires, refreshToken: token.refresh_token, refreshTokenExpires: refreshTokenExpires)
             let nc = NotificationCenter.default

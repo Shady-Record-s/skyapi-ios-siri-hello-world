@@ -8,6 +8,7 @@
 import UIKit
 import SkyUX
 import SkyApiCore
+import SiriDemoAnalytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,9 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
         print("loading SKY UX fonts")
         UIFont.loadSkyUXFonts
+
+        Analytics.initialize()
+
         return true
     }
 
@@ -49,9 +53,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Return true to indicate that your app handled the activity or false to let iOS know that your app did not handle the activity.
 
         guard let interaction = userActivity.interaction,
-            let response = interaction.intentResponse as? PersonInfoIntentResponse,
+            let response = interaction.intentResponse as? ConstituentInfoIntentResponse,
             let responseActivity = response.userActivity,
-            let intent = interaction.intent as? PersonInfoIntent else {
+            let intent = interaction.intent as? ConstituentInfoIntent else {
                 return false
         }
 
@@ -92,20 +96,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
 
-        if let code = params.first(where: { $0.name == "code" })?.value {
-            SkyApiAuthentication.getAccessToken(code: code)
-            return true
-        }
-
-        guard let accessToken = params.first(where: { $0.name == "access_token" })?.value,
-            let accessTokenExpires = params.first(where: { $0.name == "expires" })?.value,
-            let refreshToken = params.first(where: { $0.name == "refresh_token" })?.value,
-            let refreshTokenExpires = params.first(where: { $0.name == "refresh_expires" })?.value else {
+        guard let code = params.first(where: { $0.name == "code" })?.value else {
             return false
         }
-
-        SkyApiAuthentication.saveAuthToken(groupName: "group.com.blackbaud.bbshortcuts1", accessToken: accessToken, accessTokenExpires: accessTokenExpires, refreshToken: refreshToken, refreshTokenExpires: refreshTokenExpires)
-
+        
+        SkyApiAuthentication.getAccessToken(code: code)
         return true
     }
 }
