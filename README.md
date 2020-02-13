@@ -192,6 +192,8 @@ Prerequisites:
 * `gem install cocoapods`
   * I needed [`rbenv`](https://github.com/rbenv/rbenv-installer) for `gem` to work with my setup, not sure if everyone needs this
 
+1. You can build and run the app immediately with fake data if you'd like
+1. To use real data, change the `UseFakeLoginAndData` value in the [SiriDemoAppProperties/Properties.swift](./SiriDemoAppProperties/Properties.swift) file to `false`
 1. Set up your SKY application
     1. Go to [SKY Developer](https://developer.blackbaud.com/apps/) and create an application
     1. Note the application ID and secret
