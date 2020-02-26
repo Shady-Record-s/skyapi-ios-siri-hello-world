@@ -1,8 +1,9 @@
 //
-//  ViewController.swift
+//  HomePageViewController.swift
 //  Siri-Demo
 //
-//  Copyright © 2019 Blackbaud. All rights reserved.
+//  Created by Christi Schneider on 2/13/20.
+//  Copyright © 2020 Blackbaud. All rights reserved.
 //
 
 import UIKit
@@ -16,7 +17,7 @@ import CoreServices
 import SiriDemoAnalytics
 import SiriDemoAppProperties
 
-class MyViewController: UIViewController {
+class HomePageViewController: UIViewController {
 
     var titleLabelConstraints: [NSLayoutConstraint] = []
     var titleLabel: SkyLabel!
@@ -352,7 +353,7 @@ class MyViewController: UIViewController {
 }
 
 
-extension MyViewController: INUIAddVoiceShortcutViewControllerDelegate {
+extension HomePageViewController: INUIAddVoiceShortcutViewControllerDelegate {
 
     func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
         dismiss(animated: true, completion: nil)

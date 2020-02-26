@@ -49,6 +49,7 @@
 		36728D072385ABB2005FF629 /* SkyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36728D062385ABB2005FF629 /* SkyButton.swift */; };
 		3695F81023D78F65008B86D8 /* ContactReportDictationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3695F80F23D78F65008B86D8 /* ContactReportDictationEngine.swift */; };
 		3695F81323D8B550008B86D8 /* SiriDemoAppProperties.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3643CF3123D215EA00E7C1EA /* SiriDemoAppProperties.framework */; };
+		36A6A60423F5D9B300FD963C /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A6A60323F5D9B300FD963C /* HomePageViewController.swift */; };
 		36BB3A9C23B675DD007AF857 /* FileContactReportIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB3A9B23B675DD007AF857 /* FileContactReportIntentHandler.swift */; };
 		36BB3A9E23BA6687007AF857 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB3A9D23BA6687007AF857 /* HttpError.swift */; };
 		36BB3AA023BA6728007AF857 /* SkyApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB3A9F23BA6728007AF857 /* SkyApiError.swift */; };
@@ -76,7 +77,7 @@
 		82CEF6532336305A00D864F8 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 82CEF6512336305A00D864F8 /* Intents.intentdefinition */; };
 		82CEF6552336443A00D864F8 /* ConstituentInfoIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CEF6542336443A00D864F8 /* ConstituentInfoIntentHandler.swift */; };
 		82EBEBB42308463700CCF56B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EBEBB32308463700CCF56B /* AppDelegate.swift */; };
-		82EBEBB62308463700CCF56B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EBEBB52308463700CCF56B /* ViewController.swift */; };
+		82EBEBB62308463700CCF56B /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EBEBB52308463700CCF56B /* MyViewController.swift */; };
 		82EBEBB92308463700CCF56B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82EBEBB72308463700CCF56B /* Main.storyboard */; };
 		82EBEBBB2308463900CCF56B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82EBEBBA2308463900CCF56B /* Assets.xcassets */; };
 		904F693D9DE77F396D3C45E6 /* Pods_SiriDemoAppProperties.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E326E459E88C0AD59B947E02 /* Pods_SiriDemoAppProperties.framework */; };
@@ -243,6 +244,7 @@
 		36728CFE2385A635005FF629 /* SkyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyLabel.swift; sourceTree = "<group>"; };
 		36728D062385ABB2005FF629 /* SkyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyButton.swift; sourceTree = "<group>"; };
 		3695F80F23D78F65008B86D8 /* ContactReportDictationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactReportDictationEngine.swift; sourceTree = "<group>"; };
+		36A6A60323F5D9B300FD963C /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		36BB3A9B23B675DD007AF857 /* FileContactReportIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileContactReportIntentHandler.swift; sourceTree = "<group>"; };
 		36BB3A9D23BA6687007AF857 /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
 		36BB3A9F23BA6728007AF857 /* SkyApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyApiError.swift; sourceTree = "<group>"; };
@@ -280,7 +282,7 @@
 		82CEF6542336443A00D864F8 /* ConstituentInfoIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstituentInfoIntentHandler.swift; sourceTree = "<group>"; };
 		82EBEBB02308463700CCF56B /* SKY Siri Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SKY Siri Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82EBEBB32308463700CCF56B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		82EBEBB52308463700CCF56B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		82EBEBB52308463700CCF56B /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		82EBEBB82308463700CCF56B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82EBEBBA2308463900CCF56B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82EBEBBF2308463900CCF56B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -612,11 +614,12 @@
 			children = (
 				825C7F0A2308466800EA9EF7 /* Siri-Demo.entitlements */,
 				82EBEBB32308463700CCF56B /* AppDelegate.swift */,
-				82EBEBB52308463700CCF56B /* ViewController.swift */,
+				82EBEBB52308463700CCF56B /* MyViewController.swift */,
 				82EBEBB72308463700CCF56B /* Main.storyboard */,
 				82EBEBBA2308463900CCF56B /* Assets.xcassets */,
 				82EBEBBF2308463900CCF56B /* Info.plist */,
 				3695F80F23D78F65008B86D8 /* ContactReportDictationEngine.swift */,
+				36A6A60323F5D9B300FD963C /* HomePageViewController.swift */,
 			);
 			path = "Siri-Demo";
 			sourceTree = "<group>";
@@ -1180,8 +1183,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				82CEF6522336305A00D864F8 /* Intents.intentdefinition in Sources */,
-				82EBEBB62308463700CCF56B /* ViewController.swift in Sources */,
+				82EBEBB62308463700CCF56B /* MyViewController.swift in Sources */,
 				82EBEBB42308463700CCF56B /* AppDelegate.swift in Sources */,
+				36A6A60423F5D9B300FD963C /* HomePageViewController.swift in Sources */,
 				3695F81023D78F65008B86D8 /* ContactReportDictationEngine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

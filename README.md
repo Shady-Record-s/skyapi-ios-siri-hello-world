@@ -1,5 +1,7 @@
 # Blackbaud SKY Siri Demo
 
+[![Build status](https://build.appcenter.ms/v0.1/apps/117fd5e3-cdd0-405f-a994-b2f6e8d7ad2d/branches/master/badge)](https://appcenter.ms)
+
 This repository contains the code for an app that demonstrates how to use Siri
 with Blackbaud SKY. This is exploratory and I encountered some limitations with
 what is currently possible.
