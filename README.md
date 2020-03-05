@@ -197,7 +197,7 @@ Prerequisites:
 1. Set up your SKY application
     1. Go to [SKY Developer](https://developer.blackbaud.com/apps/) and create an application
     1. Note the application ID and secret
-    1. Add a redirect URI `https://host.nxt.blackbaud.com/app-redirect/redirect-siridemo/`
+    1. Add a redirect URI `com.blackbaud.siridemo://auth`
     1. In file [SiriDemoAppProperties/Properties.swift](./SiriDemoAppProperties/Properties.swift), set the `SkyAppId` and `SkyAppSecret` properties to your values
         * Note that the secret is intended to be kept secret and this value should not be included in a production app
     1. Add the application to an environment
@@ -271,59 +271,9 @@ with that server.
 
 #### OAuth
 
-SKY OAuth requires that you use an https redirect so you'll need to
-have a simple website or server redirect endpoint for your OAuth redirect url that then
-redirects into your app.
-If you don't change the custom URL scheme for this app from `bbsiridemo`, the website
-used here (https://host.nxt.blackbaud.com/app-redirect/redirect-siridemo/) will work while
-you are experimenting, but you'll want to change this prior to publishing your own app.
+Before publishing your own app, at the least, you'll want to change the custom URL scheme in 
+[Siri-Demo/Info.plist](./Siri-Demo/Info.plist) from `com.blackbaud.siridemo`.
 
 I'd recommend you set up [Universal Links](https://developer.apple.com/ios/universal-links/)
-for your app. This will mean you don't have to use a custom URL scheme, which avoids the
-requirement of a simple redirect SPA/endpoint, and it will stop Safari from asking if you want to redirect.
-
-A server endpoint that redirects to your app would return a 302 status code with the `Location`
-header set to your app URL.
-
-Here is an example of a SKY UX Angular page that can be used to redirect back to an app:
-
-```ts
-import {
-  Component, OnInit
-} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { SkyAppWindowRef } from '@skyux/core';
-
-@Component({
-  selector: 'skyapi-oauth-redirect',
-  template: `<main>
-  <h1>
-    You've been redirected here by SKY API
-  </h1>
-  <p *ngIf="errorMessage">
-    Error: {{ errorMessage }}
-  </p>
-</main>`
-})
-export class SkyApiOauthRedirectComponent implements OnInit {
-
-  public errorMessage: string;
-
-  constructor(private route: ActivatedRoute, private windowRef: SkyAppWindowRef) {
-  }
-
-  public ngOnInit() {
-
-    this.route.queryParams.subscribe(params => {
-      let code = params['code'];
-      // let state = params['state']; // TODO pass `state` to the request and verify here
-      this.errorMessage = params['error'];
-
-      if (!this.errorMessage) {
-        let url = `bbsiridemo://auth?code=${code}`;
-        this.windowRef.nativeWindow.location.href = url;
-      }
-    });
-  }
-}
-```
+for your app. This will mean you don't have to use a custom URL scheme as your SKY OAuth redirect, 
+and it will stop Safari from asking if you want to redirect.

@@ -310,7 +310,7 @@ class MyViewController: UIViewController {
              // Might work better with Universal Link
      //        let request = URLRequest(url: url)
      //        let config = WKWebViewConfiguration()
-     //        config.setURLSchemeHandler(<#T##urlSchemeHandler: WKURLSchemeHandler?##WKURLSchemeHandler?#>, forURLScheme: "bbsiridemo")
+     //        config.setURLSchemeHandler(<#T##urlSchemeHandler: WKURLSchemeHandler?##WKURLSchemeHandler?#>, forURLScheme: "com.blackbaud.siridemo")
      //        let webview = WKWebView(frame: self.view.frame, configuration: config)
      //        self.view.addSubview(webview)
      //        self.view.addConstraints([

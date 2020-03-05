@@ -25,7 +25,7 @@
 			<string>com.blackbaud.siridemo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>bbsiridemo</string>
+				<string>com.blackbaud.siridemo</string>
 			</array>
 		</dict>
 	</array>

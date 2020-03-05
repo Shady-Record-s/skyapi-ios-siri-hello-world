@@ -12,8 +12,9 @@ import SiriDemoAnalytics
 
 public class SkyApiAuthentication {
 
+    static let redirectUri = "com.blackbaud.siridemo%3A%2F%2Fauth"
+
     public static var LoginPage: URL? {
-        let redirectUri = "https%3A%2F%2Fhost.nxt.blackbaud.com%2Fapp-redirect%2Fredirect-siridemo%2F"
         return URL(string: "https://oauth2.sky.blackbaud.com/authorization?client_id=\(AppProperties.SkyAppId)&response_type=code&redirect_uri=\(redirectUri)")
     }
 
@@ -88,7 +89,7 @@ public class SkyApiAuthentication {
 
     private static func doAccessTokenRequest(body: String, completion: @escaping (String?) -> Void) {
 
-        let requestBody = "\(body)&redirect_uri=https%3A%2F%2Fhost.nxt.blackbaud.com%2Fapp-redirect%2Fredirect-siridemo%2F"
+        let requestBody = "\(body)&redirect_uri=\(redirectUri)"
 
         let body = requestBody.data(using: .utf8)
 

@@ -24,6 +24,8 @@ public struct AppProperties {
     public static let EnableAnalytics = true
     public static let EnableAnalyticsWithMixpanel = true
     // TODO set these to your own Mixpanel tokens if you'd like to use Mixpanel tracking.
+    // If not, we'd prefer if you leave these in place while you are playing with this sample so that we can
+    // see how many people are using it.
     #if DEBUG
     public static let MixpanelToken = "3fe355c87fd0a60a09234246d4fffda7"
     #else
